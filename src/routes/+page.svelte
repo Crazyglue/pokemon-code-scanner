@@ -1,7 +1,24 @@
 <script lang="ts">
-	import Counter from './Counter.svelte';
-	import welcome from '$lib/images/svelte-welcome.webp';
-	import welcomeFallback from '$lib/images/svelte-welcome.png';
+	import { type QrcodeSuccessCallback } from 'html5-qrcode';
+	import { tableData } from './data.svelte';
+	import Scanner from './Scanner.svelte';
+	import TableContainer from './TableContainer.svelte';
+
+	$inspect(tableData);
+
+	function onScanSuccess(decodedText: string, result?: any) {
+		console.log(`Scan result: ${decodedText}`, result);
+		// console.log(tableData);
+		// $inspect(decodedText);
+		if (!tableData.rows.find((d) => d.code === decodedText)) {
+			console.log('Adding...');
+			tableData.rows = [...tableData.rows, { code: decodedText, set: tableData.currentSet }];
+			// tableData.rows.push({ code: decodedText, set: 'foo' });
+		} else {
+			console.log('Already added');
+		}
+	}
+	const onScanFail = () => {};
 </script>
 
 <svelte:head>
@@ -9,51 +26,35 @@
 	<meta name="description" content="Svelte demo app" />
 </svelte:head>
 
-<section>
-	<h1>
-		<span class="welcome">
-			<picture>
-				<source srcset={welcome} type="image/webp" />
-				<img src={welcomeFallback} alt="Welcome" />
-			</picture>
-		</span>
-
-		to your new<br />SvelteKit app
-	</h1>
-
-	<h2>
-		try editing <strong>src/routes/+page.svelte</strong>
-	</h2>
-
-	<Counter />
+<section class="flex-1 content-center overflow-auto p-4">
+	<Scanner {onScanSuccess} {onScanFail} />
+</section>
+<section class="mt-4 flex-1 overflow-auto">
+	<TableContainer />
 </section>
 
 <style>
 	section {
+		flex: 1;
+	}
+
+	section:nth-child(2) {
+		overflow-y: auto;
+	}
+
+	/* section {
+		flex: 1 1 0;
+		min-height: 0;
+		overflow: auto;
+	} */
+	.scanner-container {
+		padding: 1em;
 		display: flex;
-		flex-direction: column;
 		justify-content: center;
 		align-items: center;
-		flex: 0.6;
 	}
 
 	h1 {
 		width: 100%;
-	}
-
-	.welcome {
-		display: block;
-		position: relative;
-		width: 100%;
-		height: 0;
-		padding: 0 0 calc(100% * 495 / 2048) 0;
-	}
-
-	.welcome img {
-		position: absolute;
-		width: 100%;
-		height: 100%;
-		top: 0;
-		display: block;
 	}
 </style>
