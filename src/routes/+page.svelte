@@ -41,20 +41,4 @@
 	section:nth-child(2) {
 		overflow-y: auto;
 	}
-
-	/* section {
-		flex: 1 1 0;
-		min-height: 0;
-		overflow: auto;
-	} */
-	.scanner-container {
-		padding: 1em;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-	}
-
-	h1 {
-		width: 100%;
-	}
 </style>
