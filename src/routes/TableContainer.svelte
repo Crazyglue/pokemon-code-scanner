@@ -43,7 +43,7 @@
 		</button>
 	</div>
 	<div class="flex flex-1 flex-col overflow-y-auto">
-		<Datatable basic {table}>
+		<Datatable {table}>
 			<table>
 				<thead>
 					<tr>

@@ -26,7 +26,7 @@
 	<meta name="description" content="Svelte demo app" />
 </svelte:head>
 
-<section class="max-h-[350px] w-full flex-1 content-center overflow-auto p-4 md:max-h-[100%]">
+<section class="max-h-[350px] w-full flex-1 content-center overflow-hidden p-4 md:max-h-[100%]">
 	<Scanner {onScanSuccess} {onScanFail} />
 </section>
 <section class="mt-4 flex-1 overflow-auto p-4">
