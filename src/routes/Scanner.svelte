@@ -18,7 +18,7 @@
 			{
 				fps: 10,
 				aspectRatio: 1,
-				qrbox: { height: 250, width: 250 },
+				// qrbox: { height: 250, width: 250 },
 				rememberLastUsedCamera: true,
 				supportedScanTypes: [Html5QrcodeScanType.SCAN_TYPE_CAMERA]
 			},

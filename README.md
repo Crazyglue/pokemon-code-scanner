@@ -1,29 +1,10 @@
-# sv
+# Pokemon Bulk Code Card Scanner
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+This project is a very small Svelte + SvelteKit app which streamlines the pokemon code card scanning process.
 
-## Creating a project
+The basic goal is to make digitizing your physical pokemon code cards much faster and to be able to export codes to a CSV to be further managed/tracked in your spreadsheet software of choice.
 
-If you're seeing this, you've probably already done this step. Congrats!
-
-```bash
-# create a new project in the current directory
-npx sv create
-
-# create a new project in my-app
-npx sv create my-app
-```
-
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
-```bash
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
+One QoL feature is for the user to select the set the code card belongs to before scanning the code. And all subsequent scans will be categorized with that set. 
 
 ## Building
 
@@ -36,3 +17,19 @@ npm run build
 You can preview the production build with `npm run preview`.
 
 > To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
+
+## Containers
+
+To build a container of the app, build the `Dockerfile` found in the root of the project:
+
+```bash
+docker buildx build --platform linux/amd64 -t pokemon-scanner:latest .
+```
+
+## TODO Potential Features
+
+- [x] Sound played when a new code is scanned
+- [ ] Remove a scanned code from the list
+- [ ] Export as text (simple list, separated by `\n` if `.csv` files are undesireable)
+- [ ] TCGPlayer store integration (to increment your stock on the code cards automatically)
+- [ ] Export to Google Sheets button

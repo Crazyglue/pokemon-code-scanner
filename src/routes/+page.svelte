@@ -6,6 +6,16 @@
 
 	$inspect(tableData);
 
+	const audio = new Audio('/notification.wav');
+
+	function playAddedSound() {
+		audio.currentTime = 0;
+		audio.volume = 0.5;
+		audio.play().catch((err) => {
+			console.error('Playback failed: ', err);
+		});
+	}
+
 	function onScanSuccess(decodedText: string, result?: any) {
 		console.log(`Scan result: ${decodedText}`, result);
 		// console.log(tableData);
@@ -13,6 +23,7 @@
 		if (!tableData.rows.find((d) => d.code === decodedText)) {
 			console.log('Adding...');
 			tableData.rows = [...tableData.rows, { code: decodedText, set: tableData.currentSet }];
+			playAddedSound();
 			// tableData.rows.push({ code: decodedText, set: 'foo' });
 		} else {
 			console.log('Already added');
