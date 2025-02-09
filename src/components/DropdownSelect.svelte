@@ -61,9 +61,11 @@
 	<!-- Dropdown Button -->
 	<button
 		on:click={() => (open = !open)}
-		class="w-full rounded-md border border-gray-300 bg-white px-4 py-2 text-left shadow-sm focus:outline-none"
+		class="w-50 rounded-md border border-gray-300 bg-white px-4 py-2 text-left shadow-sm focus:outline-none md:w-full"
 	>
-		<span>{selected ? selected : 'Select an option'}</span>
+		<span class="block truncate md:overflow-visible md:whitespace-normal"
+			>{selected ? selected : 'Select an option'}</span
+		>
 		<span class="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2">
 			<svg class="h-5 w-5 text-gray-400" viewBox="0 0 20 20" fill="none" stroke="currentColor">
 				<path

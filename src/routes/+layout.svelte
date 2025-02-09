@@ -7,7 +7,7 @@
 <div class="flex h-screen flex-col">
 	<Header />
 
-	<main class="flex flex-1 flex-row overflow-hidden">
+	<main class="flex flex-1 flex-col overflow-hidden md:flex-row">
 		{@render children()}
 	</main>
 

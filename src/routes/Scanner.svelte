@@ -2,7 +2,8 @@
 	import {
 		Html5QrcodeScanner,
 		type QrcodeSuccessCallback,
-		type QrcodeErrorCallback
+		type QrcodeErrorCallback,
+		Html5QrcodeScanType
 	} from 'html5-qrcode';
 	import { onMount } from 'svelte';
 
@@ -12,7 +13,17 @@
 	}: { onScanSuccess: QrcodeSuccessCallback; onScanFail: QrcodeErrorCallback } = $props();
 
 	onMount(async () => {
-		const scanner = new Html5QrcodeScanner('reader', { fps: 10, aspectRatio: 1 }, false);
+		const scanner = new Html5QrcodeScanner(
+			'reader',
+			{
+				fps: 10,
+				aspectRatio: 1,
+				qrbox: { height: 250, width: 250 },
+				rememberLastUsedCamera: true,
+				supportedScanTypes: [Html5QrcodeScanType.SCAN_TYPE_CAMERA]
+			},
+			false
+		);
 		scanner.render((decodedText, result) => onScanSuccess(decodedText, result), onScanFail);
 	});
 </script>
