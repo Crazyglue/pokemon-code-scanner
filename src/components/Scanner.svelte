@@ -18,7 +18,6 @@
 			{
 				fps: 10,
 				aspectRatio: 1,
-				// qrbox: { height: 250, width: 250 },
 				rememberLastUsedCamera: true,
 				supportedScanTypes: [Html5QrcodeScanType.SCAN_TYPE_CAMERA]
 			},
@@ -32,9 +31,6 @@
 
 <style>
 	#reader {
-		flex: 1; /* Allow it to grow/shrink within its container */
-		/* width: 100%;
-		position: relative; */
-		/* height: 50%; Ensure it fills the parent's height */
+		flex: 1;
 	}
 </style>

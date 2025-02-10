@@ -50,10 +50,6 @@
 						<ThSort {table} field="code">Code</ThSort>
 						<ThSort {table} field="set">Set Name</ThSort>
 					</tr>
-					<!-- <tr>
-						<ThFilter {table} field="code" />
-						<ThFilter {table} field="set" />
-					</tr> -->
 				</thead>
 				<tbody>
 					{#each table.rows as row}

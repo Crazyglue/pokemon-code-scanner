@@ -6,7 +6,7 @@
 
 <header>
 	<div class="corner">
-		<a href="/">
+		<a href="https://x.com/rockergamemod">
 			<img src={logo} alt="RockerGaming" />
 		</a>
 	</div>
@@ -17,7 +17,7 @@
 		</svg>
 		<ul>
 			<li aria-current={page.url.pathname === '/' ? 'page' : undefined}>
-				<a href="/">Pokemon Code Scanner</a>
+				<h1>Pokemon Code Digitizer</h1>
 			</li>
 		</ul>
 		<svg viewBox="0 0 2 3" aria-hidden="true">
@@ -103,7 +103,7 @@
 		border-top: var(--size) solid var(--color-theme-1);
 	}
 
-	nav a {
+	nav h1 {
 		display: flex;
 		height: 100%;
 		align-items: center;

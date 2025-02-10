@@ -17,18 +17,13 @@
 	}
 
 	function onScanSuccess(decodedText: string, result?: any) {
-		console.log(`Scan result: ${decodedText}`, result);
-		// console.log(tableData);
-		// $inspect(decodedText);
 		if (!tableData.rows.find((d) => d.code === decodedText)) {
-			console.log('Adding...');
 			const setName = idToNameMap.get(tableData.currentSet);
 			if (!setName) {
 				throw new Error('Invalid set name, this should not happen.');
 			}
 			tableData.rows = [...tableData.rows, { code: decodedText, set: setName }];
 			playAddedSound();
-			// tableData.rows.push({ code: decodedText, set: 'foo' });
 		} else {
 			console.log('Already added');
 		}
@@ -37,8 +32,11 @@
 </script>
 
 <svelte:head>
-	<title>Bulk Pokemon TCG Code Card Scanner</title>
-	<meta name="description" content="Svelte demo app" />
+	<title>Bulk Pokemon TCG Code Card Digitizer</title>
+	<meta
+		name="description"
+		content="Digitize your PTCG Live codes efficiently. Export them to CSV to be sold or shared."
+	/>
 </svelte:head>
 
 <section class="max-h-[350px] w-full flex-1 content-center overflow-hidden p-4 md:max-h-[100%]">
