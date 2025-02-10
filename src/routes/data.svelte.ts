@@ -1,4 +1,4 @@
-import { type SetID } from "../data/set-data";
+import { type SetID, rawData } from "../data/set-data";
 
 export type ScannedCode = {
     code: string;
@@ -12,6 +12,7 @@ export type TableData = {
 
 export const tableData: TableData = $state({
     rows: [],
-    currentSet: 'sv8pt5'
+    // The last (most recent) set is selected by default
+    currentSet: rawData[rawData.length - 1].id
 })
 
