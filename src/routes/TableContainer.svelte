@@ -4,13 +4,13 @@
 	import { rawData } from '../data/set-data';
 	import { TableHandler, Datatable, ThSort, ThFilter } from '@vincjo/datatables';
 
+	$inspect(tableData);
+
 	const options: Option[] = rawData
 		.reverse()
 		.map((set): Option => ({ label: set.name, value: set.id, group: set.series }));
 
 	let rows = $derived(tableData.rows);
-
-	let currentSetLabel = $derived(tableData.currentSet);
 
 	const table = new TableHandler(tableData.rows, { rowsPerPage: 20 });
 	const csv = table.createCSV();
@@ -30,9 +30,9 @@
 	class="max-y-md max-w mx-auto flex h-full flex-1 flex-col overflow-hidden rounded-xl bg-white p-4 shadow-md md:max-w-2xl"
 >
 	<div class="my-4 flex justify-between gap-2">
-		<DropdownSelect {options} bind:currentSet={tableData.currentSet} />
+		<DropdownSelect {options} bind:selected={tableData.currentSet} />
 		<button
-			class="inline-flex items-center rounded rounded bg-blue-500 px-4 py-2 font-bold text-white hover:bg-blue-700"
+			class="inline-flex items-center rounded bg-blue-500 px-4 py-2 font-bold text-white hover:bg-blue-700"
 			disabled={isDownloadDisabled}
 			onclick={() => csv.download('codes.csv')}
 		>

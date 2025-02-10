@@ -3,6 +3,7 @@
 	import { tableData } from './data.svelte';
 	import Scanner from './Scanner.svelte';
 	import TableContainer from './TableContainer.svelte';
+	import { idToNameMap } from '../data/set-data';
 
 	$inspect(tableData);
 
@@ -22,7 +23,11 @@
 		// $inspect(decodedText);
 		if (!tableData.rows.find((d) => d.code === decodedText)) {
 			console.log('Adding...');
-			tableData.rows = [...tableData.rows, { code: decodedText, set: tableData.currentSet }];
+			const setName = idToNameMap.get(tableData.currentSet);
+			if (!setName) {
+				throw new Error('Invalid set name, this should not happen.');
+			}
+			tableData.rows = [...tableData.rows, { code: decodedText, set: setName }];
 			playAddedSound();
 			// tableData.rows.push({ code: decodedText, set: 'foo' });
 		} else {

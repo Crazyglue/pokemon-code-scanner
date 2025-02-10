@@ -26,7 +26,7 @@ export type PokemonSet = {
     }
 }
 
-export const rawData: PokemonSet[] = [
+export const rawData = [
     // NOTE: These sets that are commented out do not contain code-cards. Leaving them here in case
     //       it makes sense to use them later for some reason.
     // {
@@ -2547,8 +2547,10 @@ export const rawData: PokemonSet[] = [
             "logo": "https://images.pokemontcg.io/sv8pt5/logo.png"
         }
     }
-]
+] as const satisfies PokemonSet[];
 
-export const idToNameMap: Map<string, string> = new Map(rawData.map((set) => {
+export type SetID = typeof rawData[number]['id'];
+
+export const idToNameMap: Map<SetID, string> = new Map(rawData.map((set) => {
     return [set.id, set.name];
 }));

@@ -1,3 +1,5 @@
+import { type SetID } from "../data/set-data";
+
 export type ScannedCode = {
     code: string;
     set: string;
@@ -5,11 +7,11 @@ export type ScannedCode = {
 
 export type TableData = {
     rows: ScannedCode[],
-    currentSet: string;
+    currentSet: SetID;
 }
 
 export const tableData: TableData = $state({
     rows: [],
-    currentSet: 'Prismatic Evolutions'
+    currentSet: 'sv8pt5'
 })
 
