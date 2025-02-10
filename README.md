@@ -6,6 +6,12 @@ The basic goal is to make digitizing your physical pokemon code cards much faste
 
 One QoL feature is for the user to select the set the code card belongs to before scanning the code. And all subsequent scans will be categorized with that set. 
 
+## Demo
+
+Visit https://scanner.rockergaming.com to play with the app. 
+
+__Note:__ The demo app does not store your codes or send them off to some 3rd party website. All of the source code of the app is contained in this repo. This app will never harvest the scanned code data for any reason. The data you collect with this app is yours.
+
 ## Building
 
 To create a production version of your app:
