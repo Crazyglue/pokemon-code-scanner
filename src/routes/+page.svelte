@@ -1,8 +1,7 @@
 <script lang="ts">
-	import { type QrcodeSuccessCallback } from 'html5-qrcode';
 	import { tableData } from './data.svelte';
-	import Scanner from './Scanner.svelte';
-	import TableContainer from './TableContainer.svelte';
+	import Scanner from '../components/Scanner.svelte';
+	import TableContainer from '../components/TableContainer.svelte';
 	import { idToNameMap } from '../data/set-data';
 
 	$inspect(tableData);

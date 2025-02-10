@@ -1,6 +1,6 @@
 <script lang="ts">
-	import DropdownSelect, { type Option } from '../components/DropdownSelect.svelte';
-	import { tableData } from './data.svelte';
+	import DropdownSelect, { type Option } from './DropdownSelect.svelte';
+	import { tableData } from '../routes/data.svelte';
 	import { rawData } from '../data/set-data';
 	import { TableHandler, Datatable, ThSort, ThFilter } from '@vincjo/datatables';
 
